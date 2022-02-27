@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chekout page</title>
+</head>
+<body>
+
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #container{
+            display: flex;
+            width:40%;
+            margin: auto;
+           
+        }
+        #container{
+            margin-top: 100px;
+        }
+        #options{
+            width:40%;
+            text-align: center;
+            margin-bottom: 80px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            font-size: larger;
+            font-weight: bold;
+        }
+        #checkform{
+            width: 100%;
+            margin: auto;
+        }
+        #length{
+            width: 100px;
+            height: 50px;
+        }
+
+        #main{
+            background-image: url("https://adn-static1.nykaa.com/media/wysiwyg/2021/topstrips18.jpg");
+            width: 90%;
+            height: 60px;
+            border: whitesmoke 1px solid;
+            display: flex;
+            margin: auto;
+            border-radius:10px;
+            color: black;
+            font-size: larger;
+            font-weight: bold;
+            justify-content: space-around;
+            width: 98%;
+        
+        }
+        .left{
+            border: transparent 1px solid;
+            width: 60%;
+            cursor: pointer;
+            padding: 1% 0 0 2%;
+            margin-left: 100px;
+        }
+        .rght{
+          
+            display: flex;
+            width: 40%;
+            padding: 1% 0 0 2%;
+            cursor: pointer;
+            justify-content: space-around;
+            border:transparent 1px solid;
+        }
+        select{
+            background-color: black;
+            color: whitesmoke;
+            border:none;
+            font-size: large;
+            font-weight: bold; 
+            cursor: pointer;
+        }
+        #name{
+             color:whitesmoke;
+        }
+        #databox{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin-top:500px;
+            text-align: center;
+            width: 40%;
+            height: 500px;
+            margin: auto;
+        }
+       #btn{
+           padding: 2% 20%;
+           border-radius: 5px;
+       }
+       #btn:hover{
+           color:blue;
+       }
+       #navBar{
+           box-sizing: border-box;
+           padding: 0px 150px;
+           display: flex;
+           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+       }
+       #logoNykaa img{
+           width: 110px ;
+           height: 70px;
+       }
+       #pages{
+           margin-left: 150px;
+           display: flex;
+       }
+       #navLogin{
+           cursor: pointer;
+           font-size: 15px;
+           font-weight: bold;
+           margin-top: 5px;
+           height: 65px;
+           width: 200px;
+           box-sizing: border-box;
+           line-height: 60px;
+           padding-left: 10px;
+           color:#3f414d;
+           border-left: #a5a5ac .1px solid;
+        }
+        #navAddress{
+            cursor: pointer;
+            border-left: #a5a5ac .1px solid;
+            font-size: 15px;
+            font-weight: bold;
+            padding-left: 10px;
+            line-height: 60px;
+            margin-top: 5px;
+            height: 65px;
+            width: 200px;
+            box-sizing: border-box;
+            color:#3f414d;
+        }
+        #navPayment{
+            cursor: pointer;
+            color: #fc2779;
+            border-bottom: #fc2779 solid;
+            border-left: #a5a5ac .1px solid;
+            border-right: #a5a5ac .1px solid;
+            padding-left: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 60px;
+            margin-top: 5px;
+             height: 65px;
+            width: 200px;
+            box-sizing: border-box;
+       }
+    </style>
+    </head>
+    <body>
+        <div id="navBar">
+            <div id="logoNykaa">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK47iYyT-3X758RkOppaeJ6z-1UPe_ehVqq-ldzFiA_Rw3Cwv_vQY_vk0MtNo7DsZg_Eg&usqp=CAU" alt="">
+            </div>
+            <div id="pages">
+                <div id="navLogin">1 - LOGIN</div>
+                <div id="navAddress">2 - ADDRESS</div>
+                <div id="navPayment">3 - PAYMENT</div>
+            </div>
+        </div>
+        <div id="container">
+        <div id="options">
+            <p>
+                <img id="length" src="https://purepng.com/public/uploads/large/purepng.com-google-pay-gpay-logobrandlogobrand-logoiconssymbolslogosgoogle-681522937443muxmx.png" alt="">
+            </p>
+            <p> <img id="length" src="https://seeklogo.com/images/P/phonepe-logo-C4BD70AF79-seeklogo.com.png" alt="">
+            </p>
+           <p>Net Banking</p>
+           <p>Mobile Wallets</p>
+           <p>Cash on Delivery</p>
+           <p>Gift Card</p>
+            
+            
+            
+        </div>
+        <div id="databox">
+        <form id="checkform">
+            <label>Name</label><br>
+            <input type="text" id="name" placeholder="Enter your name"><br><br><br>
+            <label>Mobile Number</label><br>
+            <input type="tel" id="mob" placeholder="Enter Mobile Number"><br><br><br>
+            <label>Card Number</label><br>
+            <input id="card" type="number" placeholder="Enter your card number"><br><br><br>
+            <label>CVV</label><br>
+            <input id="cvv" type="password" placeholder="Enter Cvv"><br><br><br>
+            <label>Expiery Date</label><br>
+            <input id="expiery" type="text" placeholder="Enter expeiry date"><br><br><br>
+            <input id="btn" type="submit" >        
+        </form>
+        </div>
+    </div>
+    
+    </body>
+    </html>
+    <script>
+    var name= document.querySelector("#name").value;
+    var card=document.querySelector("#card").value;
+    var CVV=document.querySelector("#cvv").value;
+    var Expiery=document.querySelector("#expiery").value;
+  
+
+    document.querySelector("#btn").addEventListener("click",gototp);
+    function gototp(event){
+    event.preventDefault();
+    // console.log("heree");
+    alert(" OTP is sent to your registered mobile number ! ");
+    window.location.href="./otp.html";
+}
+    </script>
+</body>
+</html> -->
