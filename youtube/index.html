@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #nav{
+            width: 100%;
+            height: 50px;
+            display: flex;
+        }
+        #img{
+            width: 160px;
+            height: 100px;
+        }
+        #search{
+            width: 400px;
+            height: 20px;
+            margin-top: 40px;
+            margin-left: 250px;
+        }
+        #logo{
+            width: 40px;
+            height: 40px;
+            margin-top: 30px;
+        }
+        #logo1{
+            width: 25px;
+            height: 25px;
+            margin-top: 37px;
+        }
+        #video{
+            display: grid;
+            grid-template-columns:repeat(4,1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 150px;
+        }
+        #container{
+            height:500px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <img id="img" src="https://images.hindustantimes.com/tech/rf/image_size_960x540/HT/p2/2017/08/30/Pictures/_4c5ed3fa-8d60-11e7-b1bc-83ce932a2009.png" alt="">
+        <input type="text" id="search" placeholder="Search">
+        <img id="logo" src="https://images.vexels.com/media/users/3/145280/raw/db2a2d10b811de311534421689f3434b-basic-search-icon.jpg" alt="" onclick="search()">
+        <img id="logo1" src="https://th.bing.com/th/id/OIP.BBaVLTiaFEUqgWUYFGkvLQAAAA?pid=ImgDet&rs=1" alt="">
+    </div>
+    <div id="video">
+    
+
+    </div>
+    <div id="container"></div>
+    
+
+    <!-- GET https://youtube.googleapis.com/youtube/v3/search?part=RadheShyam&key=[YOUR_API_KEY] 
+
+        'https://youtube.googleapis.com/youtube/v3/channels?key=[YOUR_API_KEY]'
+
+        AIzaSyDhnPugJu9VVYeFzlYV_xL2l6B_sujJ1gU
+ -->
+</body>
+</html>
+<script>
+
+    const search = async ()=>{
+        try{
+            document.querySelector("#video").innerHTML=""
+            
+            let input=document.querySelector("#search").value
+            let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${input}&key=AIzaSyCsJopUuILvBhXMVMmkg6bSSxJcIhEFSeM&maxResults=20`)
+            let Udata= await res.json()
+            videos=Udata.items
+            console.log(videos)
+            appendMovies(videos)
+        }
+        catch(error){
+            console.log("error",error)
+        }
+    }
+    const appendMovies = (Udata)=>{
+        Udata.forEach(({snippet:{title,thumbnails},id: {videoId}})=>{
+            try{
+                 document.querySelector("#container").innerHTML=""
+                let div=document.createElement("div")
+
+                let name=document.createElement("p")
+                name.innerText=title
+                // console.log(title)
+
+                let iframe=document.createElement("iframe")
+                iframe.src=`https://www.youtube.com/embed/${videoId}`
+                iframe.allow = "fullscreen"
+                iframe.width="100%"
+                iframe.height="100%"
+
+                let thumbnail=document.createElement("img")
+                thumbnail.src=thumbnails.default.url
+                
+                thumbnail.style.width="100%"
+                thumbnail.addEventListener("click",function(){
+                    playVideo(iframe)
+                })
+                div.append(thumbnail,name)
+
+                document.querySelector("#video").append(div)
+            }
+            catch(e){
+                console.log("e",e)
+            }
+         
+            // https://www.youtube.com/embed/QXHV148EryQ
+            
+            //https://www.youtube.com/embed/4DFBiapB-Cs
+        })
+    }
+    function playVideo(iframe){
+        document.querySelector("#container").innerHTML=""
+        document.querySelector("#video").innerHTML=""
+        // window.location.href="video.html"
+        document.querySelector("#container").append(iframe)
+    }
+</script>
